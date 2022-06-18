@@ -1,5 +1,6 @@
 const findSum = function(array) {
-  // your code here - don't forget to return a number!
+  const sum = array.reduce((acc, el) => acc + el, 0);
+  return sum;
 };
 
 const findFrequency = function(array) {
@@ -11,7 +12,17 @@ const isPalindrome = function(str) {
 };
 
 const largestPair = function(array) {
-  // your code here - don't forget to return a number!
+  const largest = array
+    .map(function (a, i, arr) {
+      return a * arr[i + 1];
+    })
+    .slice(0, -1)
+    .reduce((acc, cur) => {
+      if (acc > cur) return acc;
+      else return cur;
+    }, array[0]);
+  console.log(largest);
+  return largest;
 };
 
 const removeParenth = function(str) {
