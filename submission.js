@@ -8,7 +8,9 @@ const findFrequency = function(array) {
 };
 
 const isPalindrome = function(str) {
-  // your code here - don't forget to return a boolean!
+ const check = [...str].reverse().join('').toLowerCase();
+ console.log(check === str.toLowerCase());
+ return check === str.toLowerCase();
 };
 
 const largestPair = function(array) {
@@ -33,5 +35,24 @@ const removeParenth = function(str) {
 };
 
 const scoreScrabble = function(str) {
-  // your code here - don't forget to return a number!
+  let emptyArray = [];
+  const a = [
+    [1, 'a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'],
+    [2, 'd', 'g'],
+    [3, 'b', 'c', 'm', 'p'],
+    [4, 'f', 'h', 'v', 'w', 'y'],
+    [5, 'k'],
+    [8, 'j', 'x'],
+    [10, 'q', 'z'],
+  ];
+  let newArray = [...str];
+  for (let i = 0; i < newArray.length; i++) {
+    for (const b of a) {
+      let check = b.some(y => y === newArray[i]);
+      if (check) emptyArray.push(Number(`${b[0]}`));
+    }
+  }
+  console.log(emptyArray);
+  const score = emptyArray.reduce((acc, el) => acc + el, 0);
+  return score;
 };
