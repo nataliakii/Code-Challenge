@@ -23,19 +23,16 @@ const largestPair = function(array) {
       if (acc > cur) return acc;
       else return cur;
     }, array[0]);
-  console.log(largest);
   return largest;
 };
 
 const removeParenth = function(str) {
   const removed =
     str.slice(0, str.indexOf('(')) + str.slice(str.indexOf(')') + 1);
-  console.log(removed);
   return removed;
 };
 
 const scoreScrabble = function(str) {
-  let emptyArray = [];
   const a = [
     [1, 'a', 'e', 'i', 'o', 'u', 'l', 'n', 'r', 's', 't'],
     [2, 'd', 'g'],
@@ -45,6 +42,7 @@ const scoreScrabble = function(str) {
     [8, 'j', 'x'],
     [10, 'q', 'z'],
   ];
+  let emptyArray = [];
   let newArray = [...str];
   for (let i = 0; i < newArray.length; i++) {
     for (const b of a) {
@@ -52,7 +50,6 @@ const scoreScrabble = function(str) {
       if (check) emptyArray.push(Number(`${b[0]}`));
     }
   }
-  console.log(emptyArray);
   const score = emptyArray.reduce((acc, el) => acc + el, 0);
   return score;
 };
