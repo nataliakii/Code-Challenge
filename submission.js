@@ -9,11 +9,9 @@ const findFrequency = function(array) {
     const char = array[i];
     result[char] = (result[char] || 0) + 1;
   }
-  console.log(result);
   let result2 = {};
   result2.most = array[0];
   result2.least = array[0];
-
   const result1 = Object.entries(result);
   let max = result1[0][1];
   let min = result1[0][1];
@@ -30,11 +28,12 @@ const findFrequency = function(array) {
   return result2;
 };
 
+
 const isPalindrome = function(str) {
  const check = [...str].reverse().join('').toLowerCase();
- console.log(check === str.toLowerCase());
  return check === str.toLowerCase();
 };
+
 
 const largestPair = function(array) {
   const largest = array
@@ -49,11 +48,13 @@ const largestPair = function(array) {
   return largest;
 };
 
+
 const removeParenth = function(str) {
   const removed =
     str.slice(0, str.indexOf('(')) + str.slice(str.indexOf(')') + 1);
   return removed;
 };
+
 
 const scoreScrabble = function(str) {
   const a = [
@@ -76,3 +77,7 @@ const scoreScrabble = function(str) {
   const score = emptyArray.reduce((acc, el) => acc + el, 0);
   return score;
 };
+
+
+
+
