@@ -4,7 +4,30 @@ const findSum = function(array) {
 };
 
 const findFrequency = function(array) {
-  // your code here - don't forget to return an object!
+    let result = {};
+  for (let i = 0; i < array.length; i++) {
+    const char = array[i];
+    result[char] = (result[char] || 0) + 1;
+  }
+  console.log(result);
+  let result2 = {};
+  result2.most = array[0];
+  result2.least = array[0];
+
+  const result1 = Object.entries(result);
+  let max = result1[0][1];
+  let min = result1[0][1];
+
+  for (let x = 1; x < result1.length; x++) {
+    if (result1[x][1] > max) {
+      max = result1[x][1];
+      result2.most = result1[x][0];
+    } else if (result1[x][1] < min) {
+      min = result1[x][1];
+      result2.least = result1[x][0];
+    }
+  }
+  return result2;
 };
 
 const isPalindrome = function(str) {
